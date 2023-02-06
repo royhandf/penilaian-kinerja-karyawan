@@ -15,7 +15,7 @@
         global $con;
 
         $nama = $data['nama'];
-        mysqli_query($con, "INSERT INTO alternatif VALUES ('', '$nama')");
+        mysqli_query($con, "INSERT INTO alternatif VALUES (null, '$nama')");
 
         return mysqli_affected_rows($con);
     }
@@ -24,7 +24,7 @@
         global $con;
 
         $nama = $data['nama'];
-        mysqli_query($con, "INSERT INTO kriteria VALUES ('', '$nama')");
+        mysqli_query($con, "INSERT INTO kriteria VALUES (null, '$nama')");
 
         return mysqli_affected_rows($con);
     }
@@ -32,9 +32,9 @@
     function tambahBobot($data) {
         global $con;
 
-        $id_kriteria = $data['id_kriteria'];
+        $id_kriteria = $data['id'];
         $value = $data['value'];
-        mysqli_query($con, "INSERT INTO bobot VALUES ('', '$id_kriteria', '$value')");
+        mysqli_query($con, "INSERT INTO bobot VALUES (null, '$id_kriteria', '$value')");
 
         return mysqli_affected_rows($con);
     }
@@ -42,9 +42,9 @@
     function tambahSkala($data) {
         global $con;
 
-        $nama = $data['nama_skala'];
+        $nama = $data['nama'];
         $value = $data['value'];
-        mysqli_query($con, "INSERT INTO skala VALUES ('', '$nama', '$value')");
+        mysqli_query($con, "INSERT INTO skala VALUES (null, '$nama', '$value')");
 
         return mysqli_affected_rows($con);
     }
@@ -52,10 +52,10 @@
     function tambahMatriks($data) {
         global $con;
 
-        $id_alternatif = $data['id_alternatif'];
-        $id_bobot = $data['id_bobot'];
-        $id_skala = $data['id_skala'];
-        mysqli_query($con, "INSERT INTO matriks VALUES ('', '$id_alternatif', '$id_bobot', '$id_skala')");
+        $alternatif = $data['alternatif'];
+        $bobot = $data['bobot'];
+        $skala = $data['skala'];
+        mysqli_query($con, "INSERT INTO matriks VALUES (null, '$alternatif', '$bobot', '$skala')");
 
         return mysqli_affected_rows($con);
     }

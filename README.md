@@ -1,3 +1,3 @@
 # sistem-penilaian-kinerja
-Sistem Pendukung Keputusan menggunakan metode SAW, WP, dan TOPSIS
 
+Sistem Pendukung Keputusan Menggunakan Metode Simple Additive Weighting

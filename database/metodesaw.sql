@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 02:00 PM
+-- Generation Time: Nov 20, 2022 at 04:50 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alternatif` (
   `id_alternatif` int(11) NOT NULL,
-  `nama_alternatif` varchar(50) NOT NULL
+  `nama_alternatif` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -37,16 +37,11 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`id_alternatif`, `nama_alternatif`) VALUES
-(1, 'Layli Luthfiah, SE'),
-(2, 'Ainur Rofiq'),
-(3, 'Muhammad Mukhlis'),
-(4, 'Devi Primadanni, SH'),
-(5, 'Tyaste Aditya Nugraha'),
-(6, 'Firandita Chairawati, SE'),
-(7, 'Fita Andriana U, S. S.I.Pust.'),
-(8, 'Ayu Fauziyah Suminar, A.Md'),
-(9, 'Sudarmaji'),
-(10, 'Achmad Asril Salirizki');
+(1, 'sangat baik'),
+(2, 'baik'),
+(3, 'cukup baik'),
+(4, 'kurang baik'),
+(5, 'tidak baik');
 
 -- --------------------------------------------------------
 
@@ -57,7 +52,7 @@ INSERT INTO `alternatif` (`id_alternatif`, `nama_alternatif`) VALUES
 CREATE TABLE `bobot` (
   `id_bobot` int(11) NOT NULL,
   `id_kriteria` int(11) DEFAULT NULL,
-  `value` double NOT NULL
+  `value` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -65,14 +60,10 @@ CREATE TABLE `bobot` (
 --
 
 INSERT INTO `bobot` (`id_bobot`, `id_kriteria`, `value`) VALUES
-(1, 1, 0.339732143),
-(2, 2, 0.214732143),
-(3, 3, 0.152232143),
-(4, 4, 0.110565476),
-(5, 5, 0.079315476),
-(6, 6, 0.054315476),
-(7, 7, 0.033482143),
-(8, 8, 0.015625);
+(1, 1, '0.52'),
+(2, 2, '0.27'),
+(3, 3, '0.145'),
+(4, 4, '0.062');
 
 -- --------------------------------------------------------
 
@@ -90,14 +81,10 @@ CREATE TABLE `kriteria` (
 --
 
 INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`) VALUES
-(1, 'Kesetiaan'),
-(2, 'Prestasi Kerja'),
-(3, 'Tanggung Jawab'),
-(4, 'Ketaatan'),
-(5, 'Kejujuran'),
-(6, 'Kerja Sama'),
-(7, 'Prakarsa'),
-(8, 'Kepemimpinan');
+(1, 'disiplin'),
+(2, 'produktif'),
+(3, 'kerjasama'),
+(4, 'inisiatif');
 
 -- --------------------------------------------------------
 
@@ -117,87 +104,26 @@ CREATE TABLE `matriks` (
 --
 
 INSERT INTO `matriks` (`id_matriks`, `id_alternatif`, `id_bobot`, `id_skala`) VALUES
-(1, 1, 1, 4),
-(2, 1, 2, 4),
-(3, 1, 3, 4),
-(4, 1, 4, 4),
-(5, 1, 5, 4),
-(6, 1, 6, 4),
-(7, 1, 7, 4),
-(8, 1, 8, 4),
-(9, 2, 1, 4),
-(10, 2, 2, 3),
-(11, 2, 3, 4),
-(12, 2, 4, 4),
-(13, 2, 5, 4),
-(14, 2, 6, 4),
-(15, 2, 7, 4),
-(16, 2, 8, 3),
-(17, 3, 1, 5),
-(18, 3, 2, 4),
-(19, 3, 3, 4),
-(20, 3, 4, 4),
-(21, 3, 5, 4),
-(22, 3, 6, 4),
-(23, 3, 7, 5),
-(24, 3, 8, 4),
-(25, 4, 1, 5),
-(26, 4, 2, 4),
-(27, 4, 3, 4),
-(28, 4, 4, 4),
-(29, 4, 5, 4),
-(30, 4, 6, 4),
-(31, 4, 7, 5),
-(32, 4, 8, 4),
-(33, 5, 1, 4),
-(34, 5, 2, 3),
-(35, 5, 3, 4),
-(36, 5, 4, 4),
-(37, 5, 5, 4),
-(38, 5, 6, 4),
-(39, 5, 7, 5),
-(40, 5, 8, 3),
-(41, 6, 1, 5),
-(42, 6, 2, 5),
-(43, 6, 3, 4),
-(44, 6, 4, 4),
-(45, 6, 5, 4),
-(46, 6, 6, 4),
-(47, 6, 7, 5),
-(48, 6, 8, 4),
-(49, 7, 1, 5),
-(50, 7, 2, 4),
-(51, 7, 3, 5),
-(52, 7, 4, 5),
-(53, 7, 5, 5),
-(54, 7, 6, 5),
-(55, 7, 7, 5),
-(56, 7, 8, 4),
-(57, 8, 1, 5),
-(58, 8, 2, 4),
-(59, 8, 3, 5),
-(60, 8, 4, 4),
-(61, 8, 5, 4),
-(62, 8, 6, 4),
-(63, 8, 7, 5),
-(64, 8, 8, 4),
-(65, 9, 1, 3),
-(66, 9, 2, 4),
-(67, 9, 3, 4),
-(68, 9, 4, 2),
-(69, 9, 5, 3),
-(70, 9, 6, 4),
-(71, 9, 7, 5),
-(72, 9, 8, 2),
-(83, 10, 1, 4),
-(84, 10, 2, 4),
-(85, 10, 3, 3),
-(86, 10, 4, 4),
-(87, 10, 5, 3),
-(88, 10, 6, 3),
-(89, 10, 7, 3),
-(90, 10, 8, 5),
-(92, 2, 1, 2);
+(1, 1, 1, 1),
+(2, 2, 1, 2),
+(3, 3, 1, 3),
+(4, 4, 1, 4),
+(5, 5, 1, 5),
+(6, 1, 2, 1),
+(7, 2, 2, 2),
+(8, 3, 2, 3),
+(9, 4, 2, 4),
+(10, 5, 2, 5),
+(11, 1, 3, 1),
+(12, 2, 3, 2),
+(13, 3, 3, 3),
+(14, 4, 3, 4),
+(15, 5, 3, 5),
+(16, 1, 4, 1),
+(17, 2, 4, 2),
+(18, 3, 4, 3),
+(19, 4, 4, 4),
+(23, 5, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -212,7 +138,7 @@ CREATE TABLE `multimoora_1` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`pra` double
@@ -231,7 +157,7 @@ CREATE TABLE `multimoora_2` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`pra` double
@@ -251,7 +177,7 @@ CREATE TABLE `multimoora_3` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`pra` double
@@ -287,11 +213,11 @@ CREATE TABLE `skala` (
 --
 
 INSERT INTO `skala` (`id_skala`, `nama_skala`, `value`) VALUES
-(1, 'Sangat Kurang', '1'),
-(2, 'Kurang', '2'),
-(3, 'Cukup', '3'),
-(4, 'Baik', '4'),
-(5, 'Sangat Baik', '5');
+(1, 'sangat baik', '5'),
+(2, 'baik', '4'),
+(3, 'cukup baik', '3'),
+(4, 'kurang baik', '2'),
+(5, 'tidak baik', '1');
 
 -- --------------------------------------------------------
 
@@ -333,7 +259,7 @@ CREATE TABLE `topsis_normalisasi` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`normalisasi` double
@@ -376,7 +302,7 @@ CREATE TABLE `topsis_terbobot` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`normalisasi` double
@@ -396,7 +322,7 @@ CREATE TABLE `vmatriks_keputusan` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 );
@@ -426,7 +352,7 @@ CREATE TABLE `vnormalisasi` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`normalisasi` double
@@ -445,7 +371,7 @@ CREATE TABLE `vpra_ranking` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`normalisasi` double
@@ -507,7 +433,7 @@ CREATE TABLE `wp_nilaiv` (
 CREATE TABLE `wp_normalisasibobot` (
 `id_bobot` int(11)
 ,`id_kriteria` int(11)
-,`value` double
+,`value` varchar(50)
 ,`jumlah` double
 ,`normalisasi_wp` double
 );
@@ -525,7 +451,7 @@ CREATE TABLE `wp_pangkat` (
 ,`id_kriteria` int(11)
 ,`nama_kriteria` varchar(50)
 ,`id_bobot` int(11)
-,`value` double
+,`value` varchar(50)
 ,`nilai` varchar(50)
 ,`nama_skala` varchar(50)
 ,`normalisasi_wp` double
@@ -740,80 +666,6 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`id_alternatif`);
-
---
--- Indexes for table `bobot`
---
-ALTER TABLE `bobot`
-  ADD PRIMARY KEY (`id_bobot`),
-  ADD KEY `id_kriteria` (`id_kriteria`);
-
---
--- Indexes for table `kriteria`
---
-ALTER TABLE `kriteria`
-  ADD PRIMARY KEY (`id_kriteria`);
-
---
--- Indexes for table `matriks`
---
-ALTER TABLE `matriks`
-  ADD PRIMARY KEY (`id_matriks`),
-  ADD KEY `id_alternatif` (`id_alternatif`),
-  ADD KEY `id_bobot` (`id_bobot`),
-  ADD KEY `id_skala` (`id_skala`);
-
---
--- Indexes for table `skala`
---
-ALTER TABLE `skala`
-  ADD PRIMARY KEY (`id_skala`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `bobot`
---
-ALTER TABLE `bobot`
-  MODIFY `id_bobot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `kriteria`
---
-ALTER TABLE `kriteria`
-  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT for table `matriks`
---
-ALTER TABLE `matriks`
-  MODIFY `id_matriks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
-
---
--- AUTO_INCREMENT for table `skala`
---
-ALTER TABLE `skala`
-  MODIFY `id_skala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `bobot`
---
-ALTER TABLE `bobot`
-  ADD CONSTRAINT `bobot_ibfk_1` FOREIGN KEY (`id_kriteria`) REFERENCES `kriteria` (`id_kriteria`);
-
---
--- Constraints for table `matriks`
---
-ALTER TABLE `matriks`
-  ADD CONSTRAINT `matriks_ibfk_1` FOREIGN KEY (`id_alternatif`) REFERENCES `alternatif` (`id_alternatif`),
-  ADD CONSTRAINT `matriks_ibfk_2` FOREIGN KEY (`id_bobot`) REFERENCES `bobot` (`id_bobot`),
-  ADD CONSTRAINT `matriks_ibfk_3` FOREIGN KEY (`id_skala`) REFERENCES `skala` (`id_skala`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,0 +1,15 @@
+{
+    "name": "vendor/composer",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Composer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "royhandf",
+            "email": "royhandaffa14@gmail.com"
+        }
+    ],
+    "require": {}
+}
